@@ -1,0 +1,704 @@
+body{
+
+  margin: 0;
+  box-sizing:border-box;
+  z-index: 1;
+
+}
+
+/* ヘッダー */
+
+main{
+
+  .background{
+    width: 100%;
+    height: 100vh;
+    background-image: url(/lunch_map/backcolor.jpg);
+  }
+
+  .headerpart{
+
+  margin-bottom:20px;
+  background-image: url(/lunch_map/head_1.jpeg);
+
+    h1{
+    padding:20px;
+    margin:0;
+    }
+
+  }
+
+  #container{
+    width: 85%;
+    margin:0 auto;
+    background-color: rgba(255,255,255,0.95);
+    border:3px solid rgba(202, 208, 199, 0.6);
+    .main-container{
+      .service{
+        border: 3px solid gray;
+        margin: 0px 5%;
+        height: 650px;
+      }
+
+      .changer{
+        box-sizing: border-box; 
+        text-align: center;
+      }
+
+      .switch-width{
+        margin:15px 5% 15px 5%;
+
+        .mapselect{
+          cursor: pointer;
+        }
+
+        td{
+          font-size: 12px;
+        }
+      }
+
+      #switch-map{
+        position: relative;
+
+        #import-btn{
+        z-index: 20;
+        position: absolute;
+        top:10px;
+        left:10px;        
+        margin: 0;
+        cursor: pointer;
+        font-size: 52px;
+        color: red;
+        }
+      }
+
+      .active{
+        background-color: gray;
+      }
+
+      .main-left{
+        width: 75%;
+        float: left;
+      }
+
+      .main-right{
+        width: 25%;
+        float: right;
+      }
+
+      .map{
+        height: 650px;
+        width: 100%;
+        border-right: 1.5px solid gray;
+        text-align: center;
+        line-height: 300px;
+        display:none;
+        background-size: cover;
+        position: relative;
+      }
+
+      .arts-pin{
+        position: absolute;
+        cursor: pointer;
+      }
+
+      .arts-pin:hover{
+        width: 48px;
+        height: 61.2px;
+      }
+
+      .shop-pin{
+        position: absolute;
+        cursor: pointer;
+      }
+
+      .shop-pin:hover{
+        width: 48px;
+        height: 61.2px;
+      }
+
+      .moving-pin{
+        position: absolute;
+      }
+
+      .first-map{
+              
+      }
+
+      .second-map{
+  
+      }
+
+      .third-map{
+        
+      }
+
+      .forth-map{
+        
+      }
+
+
+      .neutral{
+        display:block;
+      }
+
+
+      #comment{
+        height: 645px;
+        border-left:1.5px solid gray;
+        .valiA{
+          height: 70%;
+          border-bottom: 1.5px solid gray;
+          overflow: scroll;
+          .view{
+            margin: 5px;
+            .post{
+              .created{
+                font-size:6px;
+                color:#C0C0C0;
+                text-align: right;
+              }
+            }
+          }
+        }
+        .valiB{
+          .form{
+            margin: 3%;
+            textarea{
+              width:97%;
+              height: 95px;
+            }
+            input{
+              margin-bottom: 5px;
+            }
+            .submit{
+              input{
+                margin-bottom: 0;
+                padding:5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .position_form{
+      float: left;
+      margin: 15px 0 15px 5%;
+      padding: 10px;
+      border: 1px solid black;
+      width: 10%;
+      border-radius: 20px;
+      background-color: #DBFF71;
+      #x_counter,#y_counter{
+        padding: 10px;
+      }
+    }
+
+    .explain{
+      float: right;
+      margin-right: 5%;
+    }
+  }
+}
+
+.modal_define {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  display:none;
+
+  .modal_in{
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    z-index: 200;
+    position: relative;
+  }
+
+  .center_text{
+    margin-top: 50%;
+  }
+
+  .modal_close{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: gray;
+    cursor: pointer;
+  }
+
+  .modal_content{
+    text-align: left;
+  }
+
+  .lunch_name{
+    padding: 10px 0 0 20px;
+    font-family: 'arial black';
+  }
+
+  .modal_image{
+    width: 80%;
+    height: 25vh;
+    background-color: gray;
+    margin: 0 auto;
+    background-size: cover;
+  }
+
+  .modal_comment{
+    margin:5%;
+  }
+
+  .modal_exist{
+    display: block;
+  }
+}
+
+.position_modal{
+  border-radius: 20px;
+  .modal_close{
+    right: 10px;
+  }
+  .modal_content{
+    padding:0 40px;
+    input{
+      margin-left: 5%;
+    }
+    textarea{
+      margin-left: 5%;
+      width: 80%;
+      height: 6vh;
+      padding: 10px;
+    }
+    p{
+      margin: 8px 0;
+    }
+  }
+  .submit{
+    text-align: center;
+    margin-top: 20px;
+    input{
+      width: 80%;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+
+
+
+// ----------------------------------------------------
+// （仮配置）
+// ----------------------------------------------------
+
+
+//全体
+
+// html {
+//     height: 100%;
+//     width: 100%;
+//     font-size: 62.5%;
+// }
+
+// .wf-notosansjapanese { font-family: "Noto Sans Japanese"; }
+
+// body{
+//   font-size: 1.4em;
+//   background-color:#f9f9f9;
+// }
+
+// .container{
+//   width: 90%;
+//     padding: 0 15px;
+//     margin: 0 auto;
+// }
+
+//ヘッダー
+
+header{
+  width:100%;
+  height:10%;
+  background-color:#00b5f0;
+  box-shadow:0 0.5vh 1vh rgba(0,0,0,0.5);
+  position:fixed;
+  top:0px;
+  left: 0;
+  z-index:10;
+}
+
+.flash{
+  width:100%;
+  height:7vh;
+  background-color:#74d8f1;
+  position:fixed;
+  left:0;
+  margin-top: 10vh;
+  z-index:11;
+  text-align:center;
+  line-height:7vh;
+  font-size:15px;
+  color:white;
+  clear:left;
+}
+
+
+.header-left{
+  margin:0;
+  line-height:100%;
+  content-aline:center;
+  height:10vh;
+  display:block;
+  float:left;
+}
+
+.logo{
+  display:block;
+  max-width:100%;
+  height:10vh;
+}
+
+.header-right{
+  float:right;
+  height:100%;
+  p{
+    display:block;
+    font-size:5vh;
+    line-height:0;
+    color: white;
+  }
+}
+
+//サイドメニュー
+
+// .left{
+//   position:fixed;
+//   top:0;
+//   left:0;
+//   z-index:10;
+//   margin-top:10vh;
+//   height:90%;
+//   width:15vw;
+
+// }
+
+// .left-menu{
+//   background-color:#d9f5ff;
+//   display:block;
+//   width:100%;
+//   text-align:center;
+//   p{
+//   margin:0;
+//   }
+//   a{
+//     display:block;
+//   }
+// }
+
+// .plans{
+//   height:40vh;
+//   border:solid 0.1px rgba(0,0,0,0.1);
+//   p{
+//     height:12.5%;
+//   }
+// }
+
+// // form{
+// //  box-shadow:(0.5vh 0.5vh 1vh rgba(0,0,0,0.5));
+// // }
+
+// .sort{
+//   text-align: center;
+//   // margin-top: 2vh;
+//   // padding: 2vh;
+//   background-color:#d9f5ff;
+//   // border:solid 0.1px rgba(0,0,0,0.1);
+// }
+
+// .links{
+//   margin-top:10%;
+//   height:70%;
+//   border:solid 0.1px rgba(0,0,0,0.1);
+// }
+
+// .efe{
+//   height: 100%;
+//   width: 100%;
+//   left: -100%;
+//   position: absolute;
+//   transition:all 0.5s ease;
+//   background-color:rgba(84,229,255,1);
+//   z-index: 1;
+// }
+
+// .link{
+//   height: 20%;
+//   width: 100%;
+//   // background-color: #74d8f1;
+//   transition-duration:0.3s;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   position: relative;
+//   cursor: pointer;
+//   border:solid 0.1px rgba(0,0,0,0.1);
+//   transition:all 0.5s ease;
+//   a{
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//   }
+//   p{
+//     font-size: 26px;
+//     font-weight: bold;
+//     z-index: 2;
+//   }
+//   &:hover{
+//     .efe{
+//       left: 0;
+//     }
+//     p{
+//       color: white;
+//     }
+//   }
+// }
+
+// //トップページ
+
+// .main{
+//   margin: 15vh 0 0 20vw;
+// }
+
+// .news_box{
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-around;
+//   align-content: space-between;
+// }
+
+// .main-img {
+//   display:block;
+//   margin:0 auto;
+//   margin-bottom: 2vh;
+//   max-height: 30vh;
+// }
+
+// .news{
+//   margin-top: 3vh;
+//   max-width: 30%;
+//   background-color:#ffffff;
+//   border:solid 0.1px rgba(0,0,0,0.1);
+//   img{
+//     display:block;
+//     width:50%;
+//     height: 17vh;
+//     object-fit: cover;
+//     margin:2vh auto 2vh auto;
+//   }
+//   a{
+//     text-decoration: none;
+//   }
+// }
+
+
+// .aa{
+//   float: right;
+//   width: 80vw;
+//   margin-top: 15vh;
+// }
+
+// //写真ギャラリー
+
+// .iventTitle{
+//   background-color:#d9f5ff;
+//   h1{
+//     display: inline-block;
+//   }
+//   form{
+//     display: inline-block;
+//   }
+// }
+
+// .photos{
+//   display: block;
+//   float: right;
+//   width: 80vw;
+//   height: 20vh;
+//   line-height: 20vh;
+//   margin-bottom: 1vh;
+// }
+
+
+// .photo {
+//   img{
+//   display: inline-block;
+//   float: left;
+//   width: 25%;
+//   height: 20vh;
+//   object-fit: cover;
+//   padding: 0 1vw;
+//   }
+// }
+
+// //問い合わせ
+
+// .contact_form{
+//   width: 85vw;
+//   height: 90%;
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   margin-top: 11vh;
+//   display: flex;
+//   justify-content: space-around;
+//   // float: right;
+//   // margin-left: 35vw;
+//   // display: inline-block;
+//   // width: 35vw;
+//   // height: 60vh;
+// }
+
+// .check{
+//   width: 70%;
+//   margin:0 auto;
+// }
+
+// textarea{
+//   width:100%;
+//   height: 40%;
+// }
+
+// input{
+//   display: block;
+//   width: 100%;
+// }
+
+// .button{
+//   display: block;
+//   width:20vw;
+//   height: 10vh;
+//   margin: 2vh auto 0 auto;
+//   font-size: 20px;
+// }
+
+// .error_message{
+//   color:red;
+//   text-align:center
+// }
+
+// #a1{
+//   text-align: center;
+//   font-size: 3vh;
+// }
+
+// #a3{
+//   text-align: center;
+// }
+
+// .a2{
+//   background-color: #d9f5ff;
+//   font-size:1.5vh;
+// }
+
+// //カレンダー
+// /*カレンダーギミック*/
+// .space{
+//   height: 2vh;
+//   width: 100%;
+// }
+
+// .calendar-title {
+//   text-align: center;
+//   font-size: 35px;
+// }
+// .calendar-table {
+//   margin: 0 auto;
+//   .is-today {
+//     color: red;
+//   }
+//   td {
+//     width: 30px;
+//     height: 30px;
+//     line-height: 30px;
+//     text-align: center;
+//   }
+// }
+
+// tr{
+//   font-size: 30px;
+// }
+
+// .is-today{
+//   color: red;
+//   font-weight: bolder;
+// }
+
+// .fas{
+//   display: inline-block;
+//   cursor: pointer;
+// }
+
+// .iventDay{
+//   color: blue;
+//   font-weight: bolder;
+// }
+
+// .fa-times{
+//   float: right;
+// }
+
+// .calendar{
+//   display: inline-block;
+//   float: left;
+//   padding: 0 0.5vw;
+// }
+
+// /*予定位置*/
+
+// /*カレンダー配置関係*/
+// .workSpace{
+//   padding: 2vh 2vw;
+//   position:absolute;
+//   top:0;
+//   right:0;
+//   margin-top:10vh;
+//   height:90%;
+//   width:85vw;
+// }
+
+// .calenderSpace{
+//   width:58%;
+//   height: 100%;
+//   float: left;
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .iventSpace{
+//   width:42%;
+//   height: 100%;
+//   float: right;
+// }
+
+// // 予定表示
+// #ivent-text{
+//   td{
+//     width: 10vw;
+//   }
+// }

@@ -1,0 +1,2 @@
+module LunchMap::PostsHelper
+end

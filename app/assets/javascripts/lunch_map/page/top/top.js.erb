@@ -1,0 +1,76 @@
+// 価格帯のタブ切り替え
+$(function() {
+
+  $(function(){
+  setTimeout("$('.flash').fadeOut('slow')", 3000) 
+  })
+
+ 
+
+  $('table .mapselect').click(function() {
+    // ②クリックされたタブの順番を変数に格納
+    var index = $('.changer td').index(this);
+    // ③クリック済みタブのデザインを設定したcssのクラスを一旦削除
+    $('table .mapselect').removeClass('active');
+    // ④クリックされたタブにクリック済みデザインを適用する
+    $(this).addClass('active');
+    // ⑤コンテンツを一旦非表示にし、クリックされた順番のコンテンツのみを表示
+    $('#switch-map .map').removeClass('neutral').hide().eq(index).addClass('neutral').fadeIn(1500);
+    // イベントピンの初期化
+    $(".neutral").find(".moving-pin").remove();
+  });
+
+   document.getElementById("switch-map").addEventListener("click",function(event){
+    var clickfocus = $(event.target);
+    //モーダルの設定
+    if (clickfocus.hasClass("arts-pin")) {
+      $("#modal_select .modal1").addClass("modal_exist").fadeIn(1000);
+    }
+    else if(clickfocus.hasClass("shop-pin")){
+      var modalId = clickfocus.attr('value');
+      $('modal_select' && '.modal' + modalId).addClass("modal_exist").fadeIn(1000);
+      console.log(modalId);
+    }
+     else if(clickfocus.hasClass("import-btn")){
+      $("#modal_select .set_modal").addClass("modal_exist").fadeIn(1000);
+    }
+    else if(clickfocus.hasClass("moving-pin")){
+      return false;
+    }
+    else
+    {  
+//絶対的な距離
+    var clickX = event.pageX;
+    var clickY = event.pageY;
+//switch-mapまでの距離
+    var clientRect = this.getBoundingClientRect();
+//スクロール量を考慮
+    var positionX = clientRect.left + window.pageXOffset;
+    var positionY = clientRect.top + window.pageYOffset;
+//絶対的な距離 - switch-mapまでの距離 = 相対的な距離(switch-map)
+    var x = (positionX - clickX);
+    var y = (positionY - clickY); 
+
+    var settingX = x * -1 -19;
+    var settingY = y * -1 -52;
+    //座標の表示（四捨五入)
+    console.log(x,y);
+    document.getElementById("x_form").value = Math.round(settingX); 
+    document.getElementById("y_form").value = Math.round(settingY);
+    document.getElementById("x_counter").innerHTML = Math.round(settingX);
+    document.getElementById("y_counter").innerHTML = Math.round(settingY);
+
+    //イベントピンの設置
+    var movener = $(this).find(".neutral");
+    $('<img src="/lunch_map/event_pin.png">').appendTo(movener).addClass("moving-pin");
+    $(".moving-pin").css({"top": settingY,"left": settingX});
+    }
+  });
+
+  //モーダルを閉じる
+
+  $(".modal_close").click(function() {
+    $("#modal_select .modal_define").removeClass("modal_exist").fadeOut(700);
+  });
+ 
+});

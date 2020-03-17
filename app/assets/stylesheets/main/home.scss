@@ -1,0 +1,465 @@
+//全体
+
+* {
+	box-sizing:border-box;
+	font-family: "Noto Sans Japanese"; 
+}
+html {
+  height: 100%;
+  width: 100%;
+  min-width: 1000px;
+  font-size: 62.5%;
+}
+
+.wf-notosansjapanese { font-family: "Noto Sans Japanese"; }
+
+body{
+	font-size: 1.4em;
+	background-color:#f9f9f9;
+}
+
+.container{
+	width: 90%;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+//ヘッダー
+
+header{
+	width:100%;
+	min-width: 1080px;
+	height:90px;
+	background-color:#00b5f0;
+	box-shadow:0 0.5vh 1vh rgba(0,0,0,0.5);
+	position:fixed;
+	top:0px;
+	left: 0;
+	z-index:10;
+}
+
+.flash{
+	width:100%; 
+	height:100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.6);
+	position:fixed;
+	top: 0;
+	left:0;
+	z-index:11;
+}
+
+.flashText{
+	background-color: #e6ecf0;
+	border-radius: 10px;
+	width: 30%;
+	height: 20%;
+	text-align: center;
+	i{
+		position: relative;
+		top: 2vh;
+		right: 2vw;
+		float: right;
+		cursor: pointer;
+	}
+	p{
+		margin-top: 8vh;
+	}
+}
+
+.clear{
+	clear: right;
+}
+
+
+.header-left{
+	margin:0;
+	line-height:100%;
+	content-aline:center;
+	height:10vh;
+	display:block;
+	float:left;
+}
+
+.logo{
+	display:block;
+	max-width:100%;
+	height:90px;
+}
+
+.header-right{
+	float:right;
+	height:100%;
+	p{
+		display:block;
+		font-size:45px;
+		line-height:0;
+		color: white;
+	}
+}
+
+//サイドメニュー
+
+.left{
+	position: absolute;
+	top:100px;
+	left:0;
+	z-index:9;
+	height:90%;
+	width:15vw;
+	min-width: 200px;
+
+}
+
+.left-menu{
+	background-color:#d9f5ff;
+	display:block;
+	width:100%;
+	text-align:center;
+	p{
+	margin:0;
+	}
+	a{
+		display:block;
+	}
+}
+
+.plans{
+	height:40vh;
+	border:solid 0.1px rgba(0,0,0,0.1);
+	p{
+		height:12.5%;
+	}
+}
+
+.sort{
+	text-align: center;
+	background-color:#d9f5ff;
+	padding-left: 1vw;
+}
+
+.links{
+	margin-top:10%;
+	height:70%;
+	min-height: 500px;
+	border:solid 0.1px rgba(0,0,0,0.1);
+}
+
+.efe{
+	height: 100%;
+	width: 100%;
+	left: -100%;
+	position: absolute;
+	transition:all 0.5s ease;
+	background-color:rgba(84,229,255,1);
+	z-index: 1;
+}
+
+.link{
+	height: 20%;
+	min-height: 100px;
+	width: 100%;
+	transition-duration:0.3s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+	border:solid 0.1px rgba(0,0,0,0.1);
+	transition:all 0.5s ease;
+	a{
+		display: block;
+	  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	}
+	p{
+		font-size: 26px;
+		font-weight: bold;
+		z-index: 2;
+	}
+	&:hover{
+		.efe{
+			left: 0;
+		}
+		p{
+			color: white;
+		}
+	}
+}
+
+//トップページ
+
+.main{
+	position: absolute;
+	top: 120px;
+	left: 300px;
+	min-width: 800px;
+}
+
+.news_box{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: space-between;
+}
+
+.main-img {
+	display:block;
+	margin:0 auto;
+	margin-bottom: 2vh;
+	height: 180px;
+}
+
+.news{
+	margin-top: 3vh;
+	max-width: 450px;
+	background-color:#ffffff;
+	border:solid 0.1px rgba(0,0,0,0.1);
+	padding: 0.5vh 1vw 0.5vh 1vw;
+	img{
+		display:block;
+		width:50%;
+		max-height: 150px;
+		object-fit: cover;
+		margin:2vh auto 2vh auto;
+	}
+	a{
+		text-decoration: none;
+	}
+}
+
+
+//写真ギャラリー
+
+.iventTitle{
+	background-color:#d9f5ff;
+	margin-bottom: 1vh;
+	min-width: 450px;
+	padding: 0 1vw 0 1vw;
+	h1{
+		display: inline-block;
+	}
+	form{
+		display: inline-block;
+	}
+}
+
+.photos {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	align-content: space-between;
+	width: 80vw;
+	height: 100%;
+}
+
+.photo{
+	img{
+		display: inline-block;
+		width: 300px;
+		height: 200px;
+		object-fit: cover;
+	}
+}
+
+#page_top{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 0;
+  bottom: -50px;
+  background: #3fefee;
+  opacity: 0.6;
+  border-radius: 50%;
+  }
+
+#page_top a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+}
+
+#page_top a::before{
+  font-family: FontAwesome;
+  content: '\f062';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+//問い合わせ
+
+.contact_form{
+	width: 83vw;
+	min-width: 800px;
+	height: 90%;
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+
+.check{
+	width: 100%;
+	margin:0 auto;
+}
+
+textarea{
+	width:100%;
+	height: 40%;
+}
+
+input{
+	display: block;
+	width: 100%;
+}
+
+.button{
+	display: block;
+	cursor: pointer;
+	width: 180px;
+	height: 70px;
+	margin: 2vh auto 0 auto;
+	font-size: 25px;
+}
+
+.error_message{
+	color:red;
+	text-align:center
+}
+
+#a1{
+	text-align: center;
+	font-size: 30px;
+}
+
+#a3{
+	display: inline-block;
+	// text-align: center;
+	border-bottom: double 6px black;
+	font-size: 20px;
+}
+
+.a2{
+	background-color: #d9f5ff;
+	font-size:15px;
+}
+
+.a4{
+	display: block;
+	font-size: 15px;
+	min-height: 50px;
+}
+
+//カレンダー
+/*カレンダーギミック*/
+.space{
+	height: 2vh;
+	width: 100%;
+}
+
+.calendar-title {
+  text-align: center;
+  font-size: 35px;
+}
+.calendar-table {
+  margin: 0 auto;
+  .is-today {
+    color: red;
+  }
+  td {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+}
+
+tr{
+  font-size: 30px;
+}
+
+.is-today{
+  color: red;
+  font-weight: bolder;
+}
+
+.fas{
+  display: inline-block;
+  cursor: pointer;
+}
+
+.iventDay{
+  color: blue;
+  font-weight: bolder;
+}
+
+.fa-times{
+	float: right;
+}
+
+.calendar{
+  display: inline-block;
+  float: left;
+  padding: 0 0.5vw;
+}
+
+/*予定位置*/
+
+/*カレンダー配置関係*/
+.calendarButton{
+	display: inline-block;
+	float: left;
+	text-align: center;
+	background-color:#d9f5ff;
+	width: 27%;
+	height: 5%;
+	cursor: pointer;
+	margin:1% 1% 0 1%;
+	border:solid 0.1px rgba(0,0,0,0.1);
+	h1{
+		margin:0;
+	}
+}
+
+.calenderSpace{
+	width:58%;
+	height: 95%;
+	float: left;
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.iventSpace{
+	position: relative;
+	top: 0;
+	right: 0;
+	display: flex;
+  justify-content: space-around;
+	width:42%;
+	height: 100%;
+	float: right;
+}
+
+// 予定表示
+#ivent-text{
+	td{
+		min-width: 220px;
+	}
+}

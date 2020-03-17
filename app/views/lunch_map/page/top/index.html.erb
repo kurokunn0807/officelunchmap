@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ランチマップ</title>
+  <script type="text/javascript">
+     function mouseOn(){
+    var obj = document.getElementById("import-btn");
+    obj.src = "/lunch_map/setting.gif";
+  };
+
+    function mouseOff(){
+    var obj = document.getElementById("import-btn");
+    obj.src = "/lunch_map/setting_nt.gif";
+  };
+  </script>
+</head>
+<!-- ここまでhead -->
+
+<!-- Body -->
+<body>
+  <main>
+    <div class="background">
+    <div class="headerpart">
+      <h1 style="color: white;">ランチマップ</h1>
+    </div>   
+      <div id="container" class="cf">
+        <div class="main-container">       
+          <div class="switch-width">
+            <table border="1" width="100%" cellpadding="5" bordercolor="#333333" class="changer">
+              <td class="mapselect active" ><p class="mapbtn">地図1 -北東-</p></td>
+              <td class="mapselect"><p class="mapbtn">地図2 -北西-</p></td>
+              <td class="mapselect"><p class="mapbtn">地図3 -南東-</p></td>
+              <td class="mapselect"><p class="mapbtn">地図4 -南西-</p></td>
+            </table>    
+          </div>
+          <div class="service">
+            <div class="main-left">
+              <div id="switch-map" > 
+                <img src="/lunch_map/setting_nt.gif" alt=""
+                id="import-btn" class="import-btn" onmouseover="mouseOn();" onmouseout="mouseOff();" >
+              <!-- 1枚目 -->
+                
+                <div class="map neutral first-map" style="background-image: url(/lunch_map/wmap_1.png);">
+                <% @firsts.each do |lunch| %>
+                  <img src="/lunch_map/<%= lunch.kind %>_pin.png" value="<%= lunch.id %>" class="<%= lunch.kind %>-pin" style="top:<%= lunch.adressY %>px; left:<%= lunch.adressX %>px;">
+                    <%= hidden_field :adressX, lunch.adressX %>
+                <% end %>
+                </div>
+              <!-- 2枚目 -->
+
+                <div class="map second-map" style="background-image: url(/lunch_map/wmap_2.png);">
+                  <% @seconds.each do |lunch| %>
+                  <img src="/lunch_map/<%= lunch.kind %>_pin.png" value="<%= lunch.id %>" class="<%= lunch.kind %>-pin" style="top:<%= lunch.adressY %>px; left:<%= lunch.adressX %>px;">
+                <% end %>
+                </div>
+
+              <!-- 3枚目 -->
+
+                <div class="map third-map" style="background-image: url(/lunch_map/wmap_3.png);">
+                  <% @thirds.each do |lunch| %>
+                  <img src="/lunch_map/<%= lunch.kind %>_pin.png" value="<%= lunch.id %>" class="<%= lunch.kind %>-pin" style="top:<%= lunch.adressY %>px; left:<%= lunch.adressX %>px;">
+                <% end %>
+                </div>
+
+              <!-- 4枚目 -->
+
+                <div class="map forth-map" style="background-image: url(/lunch_map/wmap_4.png);">
+                  <% @fouths.each do |lunch| %>
+                  <img src="/lunch_map/<%= lunch.kind %>_pin.png" value="<%= lunch.id %>" class="<%= lunch.kind %>-pin" style="top:<%= lunch.adressY %>px; left:<%= lunch.adressX %>px;">
+                <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="main-right">       
+              <div id="comment">
+                <div class="valiA">
+                  <div class="view">
+                    <% @posts.each do|post| %>
+                    <div class="post">
+                      <div class="content">
+                        <%= post.content %>              
+                      </div>
+                      <% if post.image_name %>
+                      <div>
+                        <img id="image" src="<%= "/lunch_map/post/#{post.image_name}" %>">
+                      </div>
+                      <% end %>
+                      <div class="created">
+                        <%= post.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="valiB">
+                  <div class="form">
+                    <%= form_tag("posts/create",{multipart: true})do %>                    
+                    <textarea name="content" placeholder="140文字以内"></textarea>
+                    <input type="file" name="image">
+                    <div class="submit">
+                      <input type="submit">
+                    </div>
+                  </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="cf"></div>
+            </div>
+          </div>          
+          <div class="position_form">
+            <span>X座標<span id="x_counter"></span></span><br>
+            <span>Y座標<span id="y_counter"></span></span>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <!-- モーダル部分 -->
+    <div id="modal_select">
+      <% @lunches.each do |modal| %>
+      <div class="modal_define modal<%=modal.id%>">
+        <div class="modal_in">         
+          <div class="center_text">
+            <p class="modal_close">×</p>
+            <div class="modal_content">
+              <h1 class=lunch_name><%= modal.name %></h1> 
+              <div class="modal_image" style="background-image: url(/lunch_map/lunch/<%= modal.image %>);">              
+              </div>
+              <div class="modal_comment">
+                <p><%= modal.comment %></p>
+              </div>           
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <div id="modal_select">
+      <div class="modal_define set_modal">
+        <div class="modal_in position_modal">         
+          <div class="center_text">
+            <p class="modal_close">×</p>
+            <h1 class=lunch_name>ピンの配置</h1>
+            <div class="modal_content">
+              <%= form_tag("lunch/create",{multipart: true})do %>
+                    <p>店名</p><input type="text" name="name">
+                      <input type="hidden" id="x_form" name="adressX"><br>
+                      <input type="hidden" id="y_form" name="adressY">  
+                    <p>
+                      <p>地図の種類</p>
+                      <input type="checkbox" name="adress" value="first" checked="checked">地図1
+                      <input type="checkbox" name="adress" value="second">地図2
+                      <input type="checkbox" name="adress" value="third">地図3
+                      <input type="checkbox" name="adress" value="fouth">地図4
+                      <p style="color:red">現在の表示している地図をチェックしてください</p>
+                    </p>
+                    <p>
+                      <p>画像</p>
+                      <input type="file" name="image">
+                    </p> 
+                    <p>
+                      <p>コメント</p>
+                      <textarea name="comment" placeholder="140文字以内"></textarea>
+                    </p>          
+                  </div>
+                  <div class="submit">
+                      <input type="submit">
+                  </div>
+              <% end %>          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ランチマップ</title>
+  <%= stylesheet_link_tag    'lunch_map', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'lunch_map', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<script>
+    time();
+    function time(){
+        var now = new Date();
+        document.getElementById("time").innerHTML = now.toLocaleString();
+    }
+    setInterval('time()',1000);
+</script>
+
+<% if current_action_name == 'top'%>
+  <div class="left">
+    <div class="left-menu links">
+      <div class="link"><div class="efe"></div>
+        <p>トップページ<a href="/home/top"></a></p>
+      </div>
+      <div class="link"><div class="efe"></div>
+        <p>写真ギャラリー<a href="/home/photo"></a></p>
+      </div>
+      <div class="link" id="log"><div class="efe"></div>
+        <p>過去記事<a href="/home/preview"></a></p>
+      </div>
+      <div class="link"><div class="efe"></div>
+        <p>予定行事<a href="/home/calendar"></a></p>
+      </div>
+      <div class="link"><div class="efe"></div>
+        <p>お問い合わせ<a href="/home/contact"></a></p>
+      </div>
+      <!-- 過去記事タブ -->
+    </div>
+  </div>
+
+
+<% elsif current_action_name == 'photo'%>
+    <div class="left">
+      <div class="left-menu">
+      </div>
+      <div class="left-menu links">
+        <div class="link"><div class="efe"></div>
+          <p>トップページ<a href="/home/top"></a></p>
+        </div>
+        <div class="link"><div class="efe"></div>
+          <p>写真ギャラリー<a href="/home/photo"></a></p>
+        </div>
+        <div class="link"><div class="efe"></div>
+          <p>過去記事<a href="/home/preview"></a></p>
+        </div>
+        <div class="link"><div class="efe"></div>
+          <p>予定行事<a href="/home/calendar"></a></p>
+        </div>
+        <div class="link"><div class="efe"></div>
+          <p>お問い合わせ<a href="/home/contact"></a></p>
+        </div>
+      </div>
+    </div>
+
+<% elsif current_action_name == 'photo2' %>
+    <div class="left">
+      <div class="left-menu">
+      </div>
+      <div class="left-menu links">
+        <div class="link"><div class="efe"></div>
+          <p>トップページ<a href="/home/top"></a></p>
+        </div>
+        <div class="link"><div class="efe"></div>
+          <p>写真ギャラリー<a href="/home/photo"></a></p>
+        </div>
+        <div class="link"><div class="efe"></div>
+          <p>過去記事<a href="/home/preview"></a></p>
+        </div>
+        <div class="link"><div class="efe"></div>
+          <p>予定行事<a href="/home/calendar"></a></p>
+        </div>
+        <div class="link"><div class="efe"></div>
+          <p>お問い合わせ<a href="/home/contact"></a></p>
+        </div>
+      </div>
+    </div>
+
+<% elsif current_action_name == 'index' %>
+
+
+<% else %>
+  <div></div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
